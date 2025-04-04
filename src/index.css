@@ -1,0 +1,119 @@
+:root {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+/* Apply a smooth transition to all elements */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Code syntax highlighting styles */
+.code-block {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    line-height: 1.6;
+    margin: 1.5rem 0;
+}
+
+/* Animation for the cursor */
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: currentColor;
+    }
+}
+
+/* Disable transitions during theme change to avoid flashing */
+.disable-transitions * {
+    transition: none !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(128, 128, 128, 0.5);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(128, 128, 128, 0.7);
+}
+
+/* Make images not draggable */
+img {
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+/* Animation for gradient movement */
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.gradient-text {
+    background: linear-gradient(-45deg, #3b82f6, #6366f1, #2563eb, #4f46e5);
+    background-size: 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 6s ease infinite;
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+    html {
+        font-size: 93.75%;
+        /* 15px */
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 87.5%;
+        /* 14px */
+    }
+}
