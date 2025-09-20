@@ -171,7 +171,7 @@ Platform Engineering • AI Agents • Full-Stack Development
 <em>Clinical Laboratory Platform</em><br/>
 <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white" />
 <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black" />
-<img src="https://img.shields.io/badge/Authentication-FF6B6B?style=flat-square&logo=shield&logoColor=white" />
+<img src="https://img.shields.io/badge/OAuth2.0-FF6B6B?style=flat-square&logo=shield&logoColor=white" />
 <br/><a href="https://bioexame.org/">bioexame.org</a>
 </td>
 </tr>

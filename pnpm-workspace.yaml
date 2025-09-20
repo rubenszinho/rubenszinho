@@ -1,0 +1,6 @@
+packages:
+  - rubenszinho.dev
+  - samuelrubens.com
+
+ignoredBuiltDependencies:
+  - esbuild
