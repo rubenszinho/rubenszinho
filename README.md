@@ -159,11 +159,20 @@ Platform Engineering • AI Agents • Full-Stack Development
 </td>
 </tr>
 <tr>
-<td align="center" colspan="2">
+<td align="center">
 <strong><img src="https://media.rubrion.ai/partners/raia.png" width="20" height="20"> Grupo Raia</strong><br/>
 <em>AI Community & Outreach in Brazil</em><br/>
 <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
 <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white" />
+<br/><a href="https://grupo-raia.org/">grupo-raia.org</a>
+</td>
+<td align="center">
+<strong><img src="https://media.rubrion.ai/partners/bioexame.png" width="20" height="20"> Bioexame</strong><br/>
+<em>Clinical Laboratory Platform</em><br/>
+<img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white" />
+<img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black" />
+<img src="https://img.shields.io/badge/Authentication-FF6B6B?style=flat-square&logo=shield&logoColor=white" />
+<br/><a href="https://bioexame.org/">bioexame.org</a>
 </td>
 </tr>
 </table>

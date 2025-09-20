@@ -31,10 +31,10 @@ export const Experience: React.FC = () => {
       description: [
         "Founded Platform Engineering Cooperative developing microservices with accessible serverless deployment using Go, TypeScript, React, and Vite.",
         "Built core technologies stack: Railway + Cloudflare infrastructure with NeonDB for MVP paradise philosophy.",
-        "Established cooperative network including MT2Data (Data Engineering & BI), PrismaTech (AI Consulting), and Grupo Raia (AI Community).",
+        "Established cooperative network including MT2Data (Data Engineering & BI), PrismaTech (AI Consulting), Grupo Raia (AI Community), and Bioexame (Clinical Laboratory Platform).",
         "Architecture focus: multi-tenant platforms with one-click deployment via Kubernetes and Terraform."
       ],
-      skills: ["Go", "TypeScript", "React", "Vite", "Railway", "Cloudflare", "NeonDB", "Kubernetes", "Terraform"]
+      skills: ["Go", "TypeScript", "React", "Vite", "Railway", "Cloudflare", "NeonDB", "Kubernetes", "Terraform", "Node.js"]
     },
     {
       id: 2,
