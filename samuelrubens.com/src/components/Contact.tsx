@@ -14,6 +14,7 @@ import {
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Send } from 'lucide-react';
+import * as lucideReact from 'lucide-react';
 
 export const Contact: React.FC = () => {
   const theme = useTheme();
@@ -38,7 +39,7 @@ export const Contact: React.FC = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('https://formsubmit.co/ajax/samuelrubenscontato@gmail.com', {
+      const response = await fetch('https://formsubmit.co/ajax/contato@samuelrubens.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -172,7 +173,54 @@ export const Contact: React.FC = () => {
                         Email
                       </Typography>
                       <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                        samuelrubenscontato@gmail.com
+                        contato@samuelrubens.com
+                      </Typography>
+                    </Box>
+                  </Box>
+
+                  {/* WhatsApp Business */}
+                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Box
+                      sx={{
+                        mr: 2,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        width: 40,
+                        height: 40,
+                        borderRadius: '50%',
+                        backgroundColor: '#25D366',
+                        color: 'white',
+                      }}
+                    >
+                      <lucideReact.MessageCircle size={18} />
+                    </Box>
+                    <Box>
+                      <Typography variant="body2" sx={{ color: 'text.secondary', mb: 0.5 }}>
+                        WhatsApp Business
+                      </Typography>
+                      <Typography 
+                        variant="body1" 
+                        sx={{ 
+                          fontWeight: 500,
+                          '& a': {
+                            color: 'inherit',
+                            textDecoration: 'none',
+                            '&:hover': {
+                              color: 'primary.main',
+                              textDecoration: 'underline'
+                            }
+                          }
+                        }}
+                      >
+                        <a 
+                          href="https://wa.me/5511992562478?text=Olá%20Samuel!%20Tenho%20interesse%20em%20discutir%20uma%20oportunidade%20de%20projeto."
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Conversar no WhatsApp"
+                        >
+                          +55 (11) 99256-2478
+                        </a>
                       </Typography>
                     </Box>
                   </Box>

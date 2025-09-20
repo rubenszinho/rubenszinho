@@ -12,7 +12,8 @@
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-rubenszinho.dev-FF0040?style=for-the-badge&logo=google-chrome&logoColor=white)](https://rubenszinho.dev)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-samuelrubens-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/samuelrubens)
-[![Email](https://img.shields.io/badge/Email-Contact-FF0040?style=for-the-badge&logo=gmail&logoColor=white)](mailto:samuelrubenscontato@gmail.com)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp_Business-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/5511992562478?text=Hello%20Samuel!%20I%27m%20interested%20in%20discussing%20a%20project%20opportunity.)
+[![Email](https://img.shields.io/badge/Email-Contact-FF0040?style=for-the-badge&logo=gmail&logoColor=white)](mailto:contact@rubenszinho.dev)
 [![Lattes](https://img.shields.io/badge/Currículo_Lattes-FF6B35?style=for-the-badge&logo=academia&logoColor=white)](http://lattes.cnpq.br/1985187824292077)
 
 </div>
@@ -94,6 +95,10 @@ Founder @ Rubrion & MonDesa
 
 **Location**  
 São Carlos, São Paulo, Brazil
+
+**Contact**  
+📧 contact@rubenszinho.dev  
+📱 +55 (11) 99256-2478 [(WhatsApp)](https://wa.me/5511992562478)
 
 **Focus**  
 Microservices with accessible serverless deployment
