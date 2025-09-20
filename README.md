@@ -124,7 +124,7 @@ Platform Engineering • AI Agents • Full-Stack Development
 <table>
 <tr>
 <td align="center" colspan="2">
-<strong><img src="https://cdn.jsdelivr.net/npm/lucide@latest/icons/building-2.svg" width="16" height="16" style="filter: invert(18%) sepia(100%) saturate(7500%) hue-rotate(345deg) brightness(100%) contrast(120%);"> Rubrion - Platform Engineering Cooperative</strong><br/>
+<strong><img src="https://media.rubrion.ai/images/logo_rubrion_ver4.png" width="20" height="20"> Rubrion - Platform Engineering Cooperative</strong><br/>
 <em>Core Technologies</em> • <a href="https://rubrion.ai">rubrion.ai</a><br/>
 <img src="https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white" />
 <img src="https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white" />
@@ -136,7 +136,7 @@ Platform Engineering • AI Agents • Full-Stack Development
 </tr>
 <tr>
 <td align="center">
-<strong><img src="https://cdn.jsdelivr.net/npm/lucide@latest/icons/database.svg" width="16" height="16" style="filter: invert(18%) sepia(100%) saturate(7500%) hue-rotate(345deg) brightness(100%) contrast(120%);"> MT2Data</strong><br/>
+<strong><img src="https://media.rubrion.ai/partners/mt2data.png" width="20" height="20"> MT2Data</strong><br/>
 <em>Data Engineering & Business Inteligence</em><br/>
 <img src="https://img.shields.io/badge/Azure-0078D4?style=flat-square&logo=microsoftazure&logoColor=white" />
 <img src="https://img.shields.io/badge/Django-092E20?style=flat-square&logo=django&logoColor=white" />
@@ -147,7 +147,7 @@ Platform Engineering • AI Agents • Full-Stack Development
 <br/><a href="https://mt2data.com/">mt2data.com</a>
 </td>
 <td align="center">
-<strong><img src="https://cdn.jsdelivr.net/npm/lucide@latest/icons/brain.svg" width="16" height="16" style="filter: invert(18%) sepia(100%) saturate(7500%) hue-rotate(345deg) brightness(100%) contrast(120%);"> PrismaTech</strong><br/>
+<strong><img src="https://media.rubrion.ai/partners/prismatech.png" width="20" height="20"> PrismaTech</strong><br/>
 <em>AI Consulting</em><br/>
 <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white" />
 <img src="https://img.shields.io/badge/NeonDB-00E599?style=flat-square&logo=neon&logoColor=white" />
@@ -160,7 +160,7 @@ Platform Engineering • AI Agents • Full-Stack Development
 </tr>
 <tr>
 <td align="center" colspan="2">
-<strong><img src="https://cdn.jsdelivr.net/npm/lucide@latest/icons/users.svg" width="16" height="16" style="filter: invert(18%) sepia(100%) saturate(7500%) hue-rotate(345deg) brightness(100%) contrast(120%);"> Grupo Raia</strong><br/>
+<strong><img src="https://media.rubrion.ai/partners/raia.png" width="20" height="20"> Grupo Raia</strong><br/>
 <em>AI Community & Outreach in Brazil</em><br/>
 <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
 <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white" />
