@@ -1,25 +1,30 @@
-# _headers file for Netlify/Cloudflare deployment
+# \_headers file for Netlify/Cloudflare deployment
+
 # Samuel Rubens - Platform Engineer & Full-Stack Developer
+
 # Founder @ Rubrion & MonDesa | Contact: WhatsApp Business +55 (11) 99256-2478
 
 # Enhanced Security and SEO Headers for Samuel Rubens Portfolio
 
-/*
-  # Security Headers
-  X-Frame-Options: SAMEORIGIN
-  X-Content-Type-Options: nosniff
-  X-XSS-Protection: 1; mode=block
-  Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()
+/\*
 
-  # Contact Information Headers for Business Inquiries
-  X-Contact-Email: contact@rubenszinho.dev
-  X-Contact-WhatsApp: +5511992562478
-  X-Business-Owner: Samuel Rubens - Platform Engineer
-  X-Organization: Rubrion & MonDesa
-  X-Lattes-CV: http://lattes.cnpq.br/1985187824292077
-  X-Portfolio-URL: https://rubenszinho.dev
-  X-Technologies: Platform Engineering, Go, TypeScript, React, Kubernetes, Railway, NeonDB
+# Security Headers
+
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Referrer-Policy: strict-origin-when-cross-origin
+Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()
+
+# Contact Information Headers for Business Inquiries
+
+X-Contact-Email: contact@rubenszinho.dev
+X-Contact-WhatsApp: +5511992562478
+X-Business-Owner: Samuel Rubens - Platform Engineer
+X-Organization: Rubrion & MonDesa
+X-Lattes-CV: http://lattes.cnpq.br/1985187824292077
+X-Portfolio-URL: https://rubenszinho.dev
+X-Technologies: Platform Engineering, Go, TypeScript, React, Kubernetes, Railway, NeonDB
 
 # Content Security Policy
 

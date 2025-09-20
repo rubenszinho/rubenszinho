@@ -14,7 +14,6 @@ import {
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Send } from 'lucide-react';
-import * as lucideReact from 'lucide-react';
 
 export const Contact: React.FC = () => {
   const theme = useTheme();
@@ -193,7 +192,14 @@ export const Contact: React.FC = () => {
                         color: 'white',
                       }}
                     >
-                      <lucideReact.MessageCircle size={18} />
+                      <img 
+                        src="/WhatsApp.png" 
+                        alt="WhatsApp" 
+                        style={{ 
+                          width: '18px', 
+                          height: '18px'
+                        }} 
+                      />
                     </Box>
                     <Box>
                       <Typography variant="body2" sx={{ color: 'text.secondary', mb: 0.5 }}>

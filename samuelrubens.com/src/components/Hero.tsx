@@ -2,7 +2,6 @@ import React from 'react';
 import { Box, Container, Typography, Button, Grid, Avatar } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, FileText } from 'lucide-react';
-import * as lucideReact from 'lucide-react';
 import TypedText from './TypedText';
 import { useTheme } from '@mui/material/styles';
 
@@ -14,7 +13,19 @@ export const Hero: React.FC = () => {
     { icon: <Linkedin size={24} />, label: 'LinkedIn', url: 'https://www.linkedin.com/in/samuelrubens/' },
     { icon: <Mail size={24} />, label: 'Email', url: 'mailto:contato@samuelrubens.com' },
     { 
-      icon: <lucideReact.MessageCircle size={24} style={{ color: '#25D366' }} />, 
+      icon: (
+        <img 
+          src="/WhatsApp.png" 
+          alt="WhatsApp" 
+          style={{ 
+            width: '24px', 
+            height: '24px',
+            filter: theme.palette.mode === 'dark' 
+              ? 'brightness(0) invert(1) opacity(0.87)' 
+              : 'brightness(0) opacity(0.87)'
+          }} 
+        />
+      ), 
       label: 'WhatsApp Business', 
       url: 'https://wa.me/5511992562478?text=Olá%20Samuel!%20Tenho%20interesse%20em%20discutir%20uma%20oportunidade%20de%20projeto.' 
     },
