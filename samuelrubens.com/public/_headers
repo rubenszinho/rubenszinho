@@ -1,16 +1,25 @@
-# \_headers file for Netlify deployment
+# _headers file for Netlify/Cloudflare deployment
+# Samuel Rubens - Engenheiro de Plataforma & Desenvolvedor Full-Stack
+# Fundador @ Rubrion & MonDesa | Contato: WhatsApp Business +55 (11) 99256-2478
 
-# Enhanced Security and SEO Headers for Samuel Rubens Portfolio
+# Cabeçalhos Avançados de Segurança e SEO para o Portfólio de Samuel Rubens
 
-/\*
+/*
+  # Cabeçalhos de Segurança
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()
 
-# Security Headers
-
-X-Frame-Options: SAMEORIGIN
-X-Content-Type-Options: nosniff
-X-XSS-Protection: 1; mode=block
-Referrer-Policy: strict-origin-when-cross-origin
-Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()
+  # Cabeçalhos de Informações de Contato para Oportunidades de Negócio
+  X-Contact-Email: contato@samuelrubens.com
+  X-Contact-WhatsApp: +5511992562478
+  X-Business-Owner: Samuel Rubens - Engenheiro de Plataforma
+  X-Organization: Rubrion & MonDesa
+  X-Lattes-CV: http://lattes.cnpq.br/1985187824292077
+  X-Portfolio-URL: https://samuelrubens.com
+  X-Technologies: Engenharia de Plataforma, Go, TypeScript, React, Kubernetes, Railway, NeonDB
 
 # Content Security Policy
 

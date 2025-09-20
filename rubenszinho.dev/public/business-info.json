@@ -1,0 +1,100 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Samuel Rubens",
+  "jobTitle": "Platform Engineer & Full-Stack Developer",
+  "description": "Platform Engineer and Full-Stack Developer specializing in microservices with accessible serverless deployment. Founder of Rubrion & MonDesa.",
+  "url": "https://rubenszinho.dev",
+  "image": "https://rubenszinho.dev/me.png",
+  "sameAs": [
+    "https://github.com/rubenszinho",
+    "https://linkedin.com/in/samuelrubens",
+    "http://lattes.cnpq.br/1985187824292077",
+    "https://wa.me/5511992562478"
+  ],
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+5511992562478",
+      "contactType": "customer service",
+      "availableLanguage": ["English", "Portuguese"],
+      "areaServed": "BR",
+      "serviceType": "WhatsApp Business"
+    },
+    {
+      "@type": "ContactPoint",
+      "email": "contact@rubenszinho.dev",
+      "contactType": "customer service",
+      "availableLanguage": ["English", "Portuguese"],
+      "areaServed": "Worldwide"
+    }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "São Carlos",
+    "addressRegion": "São Paulo", 
+    "addressCountry": "BR"
+  },
+  "worksFor": [
+    {
+      "@type": "Organization",
+      "name": "Rubrion",
+      "description": "Platform Engineering Cooperative",
+      "url": "https://github.com/Rubrion",
+      "foundingDate": "2024-11",
+      "founder": {
+        "@type": "Person",
+        "name": "Samuel Rubens"
+      }
+    },
+    {
+      "@type": "Organization", 
+      "name": "MonDesa",
+      "description": "Academic Organization for Disaster Research",
+      "url": "https://github.com/MonDesa",
+      "foundingDate": "2024-10",
+      "founder": {
+        "@type": "Person",
+        "name": "Samuel Rubens"
+      }
+    }
+  ],
+  "knowsAbout": [
+    "Platform Engineering",
+    "Full-Stack Development", 
+    "Microservices Architecture",
+    "Serverless Deployment",
+    "Go Programming",
+    "TypeScript",
+    "React",
+    "Kubernetes",
+    "Railway",
+    "NeonDB",
+    "Cloudflare",
+    "IoT Development",
+    "ESP32",
+    "LoRa Communication",
+    "MQTT Protocol"
+  ],
+  "alumniOf": [
+    {
+      "@type": "EducationalOrganization",
+      "name": "University of São Paulo",
+      "alternateName": "USP",
+      "url": "https://www.usp.br/"
+    }
+  ],
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Cambridge Advanced Exam (CAE)",
+      "credentialCategory": "C1 CEFR English Proficiency",
+      "dateCreated": "2019"
+    }
+  ],
+  "seeks": {
+    "@type": "Demand",
+    "name": "Platform Engineering & Full-Stack Development Projects",
+    "description": "Looking for opportunities in platform engineering, microservices architecture, and cooperative development models"
+  }
+}

@@ -1,18 +1,22 @@
-# Robots.txt for Samuel Rubens Portfolio Website
-# https://rubenszinho.dev
+# Robots.txt para o Portfólio de Samuel Rubens
+# Engenheiro de Plataforma & Desenvolvedor Full-Stack
+# Fundador @ Rubrion & MonDesa
+# https://samuelrubens.com
 
 User-agent: *
 Allow: /
 
-# Allow all web crawlers to access all content
+# Permitir acesso de crawlers a todo o conteúdo
 Allow: /src/
 Allow: /public/
 Allow: /*.css
 Allow: /*.js
 Allow: /*.tsx
 Allow: /*.ts
+Allow: /samuel-rubens-curriculo.pdf
+Allow: /lattes.png
 
-# Disallow sensitive or unnecessary files
+# Desautorizar arquivos sensíveis ou desnecessários
 Disallow: /node_modules/
 Disallow: /.git/
 Disallow: /.env
@@ -21,13 +25,19 @@ Disallow: /.env.production
 Disallow: /package-lock.json
 Disallow: /tsconfig.json
 
-# Sitemap location
-Sitemap: https://rubenszinho.dev/sitemap.xml
+# Informações de Contato para Oportunidades de Negócio
+# Email: contato@samuelrubens.com
+# WhatsApp Business: +55 (11) 99256-2478
+# LinkedIn: https://linkedin.com/in/samuelrubens
+# Currículo Lattes: http://lattes.cnpq.br/1985187824292077
 
-# Crawl delay (be nice to servers)
+# Localização do Sitemap
+Sitemap: https://samuelrubens.com/sitemap.xml
+
+# Delay de crawl (ser gentil com os servidores)
 Crawl-delay: 1
 
-# Allow common search engines
+# Permitir mecanismos de busca comuns
 User-agent: Googlebot
 Allow: /
 
@@ -53,4 +63,7 @@ User-agent: Twitterbot
 Allow: /
 
 User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsAppBot
 Allow: /

@@ -1,4 +1,6 @@
 # .htaccess for Samuel Rubens Portfolio Website
+# Platform Engineer & Full-Stack Developer | Founder @ Rubrion & MonDesa
+# Contact: WhatsApp Business +55 (11) 99256-2478 | contact@rubenszinho.dev
 # Enhanced SEO and Performance Configuration
 
 # Enable Apache rewrite engine
@@ -86,6 +88,13 @@ AddDefaultCharset UTF-8
     # Remove server signature
     Header unset Server
     Header unset X-Powered-By
+    
+    # Contact information headers for business inquiries
+    Header always set X-Contact-Email "contact@rubenszinho.dev"
+    Header always set X-Contact-WhatsApp "+5511992562478"
+    Header always set X-Business-Owner "Samuel Rubens - Platform Engineer"
+    Header always set X-Organization "Rubrion & MonDesa"
+    Header always set X-Lattes-CV "http://lattes.cnpq.br/1985187824292077"
 </IfModule>
 
 # Handle SPA routing (for React Router)

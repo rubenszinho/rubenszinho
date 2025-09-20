@@ -1,4 +1,6 @@
 # Robots.txt for Samuel Rubens Portfolio Website
+# Platform Engineer & Full-Stack Developer
+# Founder @ Rubrion & MonDesa
 # https://rubenszinho.dev
 
 User-agent: *
@@ -11,6 +13,8 @@ Allow: /*.css
 Allow: /*.js
 Allow: /*.tsx
 Allow: /*.ts
+Allow: /samuel-rubens-resume.pdf
+Allow: /lattes.png
 
 # Disallow sensitive or unnecessary files
 Disallow: /node_modules/
@@ -20,6 +24,12 @@ Disallow: /.env.local
 Disallow: /.env.production
 Disallow: /package-lock.json
 Disallow: /tsconfig.json
+
+# Contact Information for Business Inquiries
+# Email: contact@rubenszinho.dev
+# WhatsApp Business: +55 (11) 99256-2478
+# LinkedIn: https://linkedin.com/in/samuelrubens
+# Lattes CV: http://lattes.cnpq.br/1985187824292077
 
 # Sitemap location
 Sitemap: https://rubenszinho.dev/sitemap.xml
@@ -53,4 +63,7 @@ User-agent: Twitterbot
 Allow: /
 
 User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsAppBot
 Allow: /
