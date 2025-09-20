@@ -1,0 +1,23 @@
+# \_redirects file for Netlify SPA routing
+
+# This ensures all routes are handled by the React app
+
+# Redirect HTTP to HTTPS
+
+http://rubenszinho.dev/_ https://rubenszinho.dev/:splat 301!
+http://www.rubenszinho.dev/_ https://rubenszinho.dev/:splat 301!
+https://www.rubenszinho.dev/* https://rubenszinho.dev/:splat 301!
+
+# Handle SPA routing - this should be the last rule
+
+/\* /index.html 200
+
+# API redirects (if needed in future)
+
+# /api/\* https://api.rubenszinho.dev/:splat 200
+
+# Legacy redirects (if migrating from another domain)
+
+# /old-path /new-path 301
+
+# /blog/\* https://blog.rubenszinho.dev/:splat 301
