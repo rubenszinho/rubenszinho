@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Typography, Grid, Card, CardContent, useTheme, Chip } from '@mui/material';
+import { Box, Container, Typography, Grid, Card, CardContent, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import * as lucideReact from 'lucide-react';
 
@@ -8,85 +8,74 @@ interface ExperienceItem {
   id: number;
   role: string;
   company: string;
-  logoSrc?: string; // Make logoSrc optional
-  preserveLogoColor?: boolean; // Add flag to preserve original logo colors
+  logoSrc?: string;
   period: string;
+  duration: string;
   location: string;
-  description: string[];
-  skills: string[];
+  description: string;
 }
 
 export const Experience: React.FC = () => {
   const theme = useTheme();
+  const MEDIA_BASE = 'https://media.samuelrubens.com';
 
-  // Actual experience data
   const experiences: ExperienceItem[] = [
     {
       id: 1,
-      role: "Engenheiro de Plataforma & Desenvolvedor Full-Stack",
-      company: "Rubrion",
-      logoSrc: "/logo-rubrion.svg",
-      period: "Nov 2024 - Presente",
-      location: "São Carlos, São Paulo, Brasil (Remoto)",
-      description: [
-        "Fundei a Cooperativa de Engenharia de Plataforma desenvolvendo microsserviços com deployment serverless acessível usando Go, TypeScript, React e Vite.",
-        "Construí stack de tecnologias centrais: infraestrutura Railway + Cloudflare com NeonDB para filosofia de paraíso MVP.",
-        "Estabeleci rede cooperativa incluindo MT2Data (Engenharia de Dados & BI), PrismaTech (Consultoria em IA), Grupo Raia (Comunidade de IA) e Bioexame (Plataforma de Laboratório Clínico).",
-        "Foco em arquitetura: plataformas multi-tenant com deployment em um clique via Kubernetes e Terraform."
-      ],
-      skills: ["Go", "TypeScript", "React", "Vite", "Railway", "Cloudflare", "NeonDB", "Kubernetes", "Terraform", "Node.js"]
+      role: "Engenheiro de Software Sênior",
+      company: "MT2 Data",
+      logoSrc: `${MEDIA_BASE}/partners/mt2data.png`,
+      period: "Ago 2025 - Presente",
+      duration: "",
+      location: "Remoto",
+      description: "Liderando modernização de infraestrutura e plataformas de dados industriais."
     },
     {
       id: 2,
-      role: "Fundador",
-      company: "MonDesa",
-      logoSrc: "/logo-mondesa.png",
-      period: "Out 2024 - Presente",
-      location: "São Carlos, São Paulo, Brasil (Híbrido)",
-      description: [
-        "Monitoramento de Deslizamentos: sensores (ESP32 + LoRa/Wi-Fi/4G) e backend em Go / Mosquitto usando containers.",
-        "EneMeter: telemetria de energia (MKR Zero + LTC2943) para otimizar ciclos de duty dos sensores.",
-        "Design de esquema MQTT resiliente e benchmarking de rádios de baixo consumo.",
-        "Proposta de API pública para integração municipal; parceria técnica com CEMADEN."
-      ],
-      skills: ["IoT", "ESP32", "LoRa", "MQTT", "Go", "Containers", "Docker", "Kubernetes"]
+      role: "Tech Lead & Engenheiro de Software Sênior",
+      company: "Prisma Tech",
+      logoSrc: `${MEDIA_BASE}/partners/prismatech.png`,
+      period: "Jun 2024 - Ago 2025",
+      duration: "1 ano e 3 meses",
+      location: "Remoto",
+      description: "Promovido de Engenheiro de Software Sênior (Jan 2025) e Engenheiro de Software (Jun 2024)."
     },
     {
       id: 3,
-      role: "Estagiário Desenvolvedor Mobile",
-      company: "BTG Pactual Bank",
+      role: "Engenheiro de Software",
+      company: "BTG Pactual",
+      logoSrc: `${MEDIA_BASE}/partners/btg.png`,
       period: "Jul 2022 - Mar 2024",
-      location: "São Paulo, São Paulo, Brasil (Remoto)",
-      description: [
-        "Desenvolvi novas funcionalidades para o app BTG TRADER usando Flutter.",
-        "Criei pipelines para automação de releases no Azure DevOps, melhorando velocidade de entrega e confiabilidade de deployment.",
-        "Mantive scripts de automação para testes e integração contínua usando Lua e Shell Script."
-      ],
-      skills: ["Flutter", "Azure DevOps", "Lua", "Shell Script", "CI/CD", "Desenvolvimento Mobile"]
+      duration: "1 ano e 9 meses",
+      location: "Remoto",
+      description: "Desenvolvi funcionalidades críticas para o BTG TRADER e mantive infraestrutura de CI/CD."
     },
     {
       id: 4,
-      role: "Estagiário Desenvolvedor Full-Stack",
-      company: "U-GET",
-      // logoSrc removed, making it optional
-      period: "Out 2021 - Jun 2022",
-      location: "São Paulo, São Paulo, Brasil (Remoto)",
-      description: [
-        "Desenvolvi aplicativos mobile em Flutter, incluindo o app BenGelado.",
-        "Construí APIs backend usando Rust, migrando de um sistema legado baseado em PHP.",
-        "Contribuí para o desenvolvimento de um app Android nativo com integração de visão computacional."
-      ],
-      skills: ["Flutter", "Rust", "Desenvolvimento de API", "Android", "Visão Computacional", "Desenvolvimento Mobile"]
+      role: "Engenheiro de Software",
+      company: "U-Get",
+      logoSrc: `${MEDIA_BASE}/partners/uget.png`,
+      period: "Nov 2021 - Mai 2022",
+      duration: "7 meses",
+      location: "Remoto",
+      description: "Desenvolvi apps mobile em Flutter e auxiliei na estruturação de ferramentas DevOps."
+    },
+    {
+      id: 5,
+      role: "Engenheiro de Software",
+      company: "Zenith Aerospace",
+      logoSrc: `${MEDIA_BASE}/partners/zenith.png`,
+      period: "Fev 2021 - Nov 2021",
+      duration: "10 meses",
+      location: "Remoto",
+      description: "Desenvolvi app mobile open source para Rastreamento de Sondas Atmosféricas."
     }
   ];
 
-  // Function to apply theme-based filters to SVG logos
-  const getLogoStyle = (isDarkTheme: boolean, preserveColor: boolean = false) => ({
-    filter: preserveColor
-      ? 'none' // Preserve original colors
-      : isDarkTheme
-        ? 'brightness(0) invert(1) opacity(0.9)' // Make logos white in dark mode
-        : 'brightness(0) opacity(0.85)', // Make logos black in light mode
+  const getLogoStyle = (isDarkTheme: boolean) => ({
+    filter: isDarkTheme
+      ? 'brightness(0) invert(1) opacity(0.9)'
+      : 'brightness(0) opacity(0.85)',
     transition: 'filter 0.3s ease',
     maxHeight: '45px',
     maxWidth: '140px',
@@ -97,9 +86,7 @@ export const Experience: React.FC = () => {
     <Box
       sx={{
         py: { xs: 8, md: 12 },
-        backgroundColor: theme.palette.mode === 'dark'
-          ? 'rgba(15, 23, 42, 0.6)'
-          : 'rgba(248, 250, 252, 0.8)',
+        backgroundColor: theme.palette.background.default,
       }}
     >
       <Container maxWidth="lg">
@@ -131,24 +118,24 @@ export const Experience: React.FC = () => {
               textAlign: 'center'
             }}
           >
-            Minha jornada profissional através de organizações onde contribuí para projetos impactantes,
-            desenvolvi soluções inovadoras e cresci como profissional de tecnologia.
+            Minha jornada profissional através de organizações onde contribuí para projetos impactantes
+            e cresci como profissional de tecnologia.
           </Typography>
 
-          {/* Experience Cards */}
-          <Grid container spacing={4}>
+          <Grid container spacing={3}>
             {experiences.map((exp, index) => (
-              <Grid item xs={12} key={exp.id}>
+              <Grid item xs={12} md={6} key={exp.id}>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
+                  style={{ height: '100%' }}
                 >
                   <Card
                     elevation={0}
                     sx={{
-                      p: 1,
+                      height: '100%',
                       border: `1px solid ${theme.palette.divider}`,
                       backgroundColor: theme.palette.background.paper,
                       transition: 'transform 0.3s ease, box-shadow 0.3s ease',
@@ -159,26 +146,22 @@ export const Experience: React.FC = () => {
                     }}
                   >
                     <CardContent sx={{ p: 3 }}>
-                      <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: { xs: 'flex-start', sm: 'center' }, mb: 2 }}>
-                        {/* Company Logo or Icon - Standardized container size with better mobile alignment */}
+                      <Box sx={{ display: 'flex', alignItems: 'flex-start', mb: 2 }}>
                         <Box
                           sx={{
-                            mr: { xs: 0, sm: 3 },
-                            mb: { xs: 2, sm: 0 },
+                            mr: 2,
                             display: 'flex',
                             alignItems: 'center',
-                            justifyContent: { xs: 'flex-start', sm: 'center' }, // Left align on mobile, center on desktop
-                            minWidth: { sm: '140px' }, // Only set fixed width on larger screens
-                            width: { xs: 'auto', sm: '140px' }, // Auto width on mobile for better alignment
-                            height: '60px',
-                            pl: { xs: 0.5, sm: 0 }, // Small padding on mobile to align with content
+                            justifyContent: 'center',
+                            minWidth: '50px',
+                            height: '50px',
                           }}
                         >
                           {exp.logoSrc ? (
                             <img
                               src={exp.logoSrc}
                               alt={`${exp.company} logo`}
-                              style={getLogoStyle(theme.palette.mode === 'dark', exp.preserveLogoColor)}
+                              style={getLogoStyle(theme.palette.mode === 'dark')}
                             />
                           ) : (
                             <Box
@@ -198,141 +181,35 @@ export const Experience: React.FC = () => {
                           )}
                         </Box>
 
-                        {/* Role and Company */}
                         <Box sx={{ flex: 1 }}>
-                          <Typography variant="h5" component="h3" sx={{ fontWeight: 600 }}>
+                          <Typography variant="h6" component="h3" sx={{ fontWeight: 600, lineHeight: 1.3 }}>
                             {exp.role}
                           </Typography>
-                          <Typography variant="h6" color="primary" sx={{ mb: 1 }}>
-                            {exp.company === "Rubrion" ? (
-                              <Box
-                                component="a"
-                                href="https://github.com/Rubrion"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                sx={{
-                                  color: 'primary.main',
-                                  textDecoration: 'none',
-                                  display: 'inline-flex',
-                                  alignItems: 'center',
-                                  gap: 0.5,
-                                  '&:hover': {
-                                    textDecoration: 'underline',
-                                  }
-                                }}
-                              >
-                                {exp.company}
-                                <lucideReact.Github size={16} />
-                              </Box>
-                            ) : exp.company === "MonDesa" ? (
-                              <Box
-                                component="a"
-                                href="https://github.com/MonDesa"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                sx={{
-                                  color: 'primary.main',
-                                  textDecoration: 'none',
-                                  display: 'inline-flex',
-                                  alignItems: 'center',
-                                  gap: 0.5,
-                                  '&:hover': {
-                                    textDecoration: 'underline',
-                                  }
-                                }}
-                              >
-                                {exp.company}
-                                <lucideReact.Github size={16} />
-                              </Box>
-                            ) : exp.company}
+                          <Typography variant="subtitle1" color="primary" sx={{ fontWeight: 500 }}>
+                            {exp.company}
                           </Typography>
-
-                          {/* Period and Location */}
-                          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, mb: 2, color: 'text.secondary' }}>
-                            <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                              <lucideReact.Calendar size={16} style={{ marginRight: '6px' }} />
-                              <Typography variant="body2">{exp.period}</Typography>
-                            </Box>
-                            <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                              <lucideReact.MapPin size={16} style={{ marginRight: '6px' }} />
-                              <Typography variant="body2">{exp.location}</Typography>
-                            </Box>
-                          </Box>
                         </Box>
                       </Box>
 
-                      {/* Description - Also align the bullet points better */}
-                      <Box sx={{ mb: 2 }}>
-                        <ul style={{ paddingLeft: '16px', margin: '0' }}>
-                          {exp.description.map((item, i) => (
-                            <li key={i}>
-                              <Typography variant="body2" sx={{ mb: 0.5 }}>
-                                {exp.company === "BTG Pactual Bank" && i === 0 && item.includes("BTG TRADER") ? (
-                                  <>
-                                    Desenvolvi novas funcionalidades para o{' '}
-                                    <Box
-                                      component="a"
-                                      href="https://play.google.com/store/apps/details?id=com.btg.pactual.homebroker.mobile&hl=pt_BR"
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      sx={{
-                                        color: 'inherit',
-                                        textDecoration: 'underline',
-                                        '&:hover': {
-                                          color: 'primary.main',
-                                        }
-                                      }}
-                                    >
-                                      app BTG TRADER
-                                    </Box>
-                                    {' '}usando Flutter.
-                                  </>
-                                ) : exp.company === "U-GET" && i === 0 && item.includes("BenGelado") ? (
-                                  <>
-                                    Desenvolvi aplicativos mobile em Flutter, incluindo o{' '}
-                                    <Box
-                                      component="a"
-                                      href="https://play.google.com/store/apps/details?id=com.uget_maintenance"
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      sx={{
-                                        color: 'inherit',
-                                        textDecoration: 'underline',
-                                        '&:hover': {
-                                          color: 'primary.main',
-                                        }
-                                      }}
-                                    >
-                                      app BenGelado
-                                    </Box>.
-                                  </>
-                                ) : (
-                                  item
-                                )}
-                              </Typography>
-                            </li>
-                          ))}
-                        </ul>
+                      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, mb: 2, color: 'text.secondary' }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                          <lucideReact.Calendar size={14} style={{ marginRight: '6px' }} />
+                          <Typography variant="body2">{exp.period}</Typography>
+                        </Box>
+                        {exp.duration && (
+                          <Typography variant="body2" color="text.secondary">
+                            ({exp.duration})
+                          </Typography>
+                        )}
+                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                          <lucideReact.MapPin size={14} style={{ marginRight: '6px' }} />
+                          <Typography variant="body2">{exp.location}</Typography>
+                        </Box>
                       </Box>
 
-                      {/* Skills */}
-                      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 2 }}>
-                        {exp.skills.map((skill) => (
-                          <Chip
-                            key={skill}
-                            label={skill}
-                            size="small"
-                            color="primary"
-                            variant="outlined"
-                            sx={{
-                              borderRadius: '4px',
-                              '& .MuiChip-label': {
-                                px: 1.5
-                              }
-                            }}
-                          />
-                        ))}
-                      </Box>
+                      <Typography variant="body2" color="text.secondary">
+                        {exp.description}
+                      </Typography>
                     </CardContent>
                   </Card>
                 </motion.div>

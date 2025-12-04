@@ -3,6 +3,7 @@ import { CssBaseline, Box } from '@mui/material';
 import { ThemeProvider } from './context/ThemeContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { Projects } from './components/Projects';
 import { Experience } from './components/Experience';
 import { Skills } from './components/Skills';
 import { Education } from './components/Education';
@@ -21,8 +22,11 @@ function App() {
       >
         <Navbar />
         <main style={{ flexGrow: 1 }}>
-          <section id="about">
+          <section id="home">
             <Hero />
+          </section>
+          <section id="projects">
+            <Projects />
           </section>
           <section id="experience">
             <Experience />

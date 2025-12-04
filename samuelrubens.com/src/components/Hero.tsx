@@ -7,6 +7,7 @@ import { useTheme } from '@mui/material/styles';
 
 export const Hero: React.FC = () => {
   const theme = useTheme();
+  const MEDIA_BASE = import.meta.env.VITE_MEDIA_BASE_URL || 'https://media.samuelrubens.com';
 
   const socialLinks = [
     { icon: <Github size={24} />, label: 'GitHub', url: 'https://github.com/rubenszinho' },
@@ -15,7 +16,7 @@ export const Hero: React.FC = () => {
     { 
       icon: (
         <img 
-          src="/WhatsApp.png" 
+          src={`${MEDIA_BASE}/misc/whatsapp.png`} 
           alt="WhatsApp" 
           style={{ 
             width: '24px', 
@@ -32,7 +33,7 @@ export const Hero: React.FC = () => {
     { 
       icon: (
         <img 
-          src="/lattes.png" 
+          src={`${MEDIA_BASE}/misc/lattes.png`} 
           alt="Lattes" 
           style={{ 
             width: '24px', 
@@ -46,7 +47,7 @@ export const Hero: React.FC = () => {
       label: 'Currículo Lattes', 
       url: 'http://lattes.cnpq.br/1985187824292077' 
     },
-    { icon: <FileText size={24} />, label: 'Currículo PDF', url: '/samuel-rubens-curriculo.pdf' },
+    { icon: <FileText size={24} />, label: 'Currículo PDF', url: `${MEDIA_BASE}/personal/samuel-rubens-curriculo.pdf` },
   ];
 
   const typedTexts = [
@@ -146,9 +147,8 @@ export const Hero: React.FC = () => {
                   lineHeight: 1.7,
                 }}
               >
-                Engenheiro de Plataforma & Desenvolvedor Full-Stack especializado em microsserviços com deployment 
-                serverless acessível. Fundador @ Rubrion & MonDesa, desenvolvendo soluções cooperativas de engenharia 
-                de plataforma com foco na filosofia "Vite + React Router {">"} monopólio NextJS" e "Railway + NeonDB = paraíso MVP".
+              Engenheiro de Software Sênior e Líder Técnico especializado em Desenvolvimento Full-Stack, SRE e DevOps.
+              Entusiasta de open source com abordagem serverless-first para entregar impacto mais rápido.
               </Typography>
 
               {/* CTA Buttons */}
@@ -254,7 +254,7 @@ export const Hero: React.FC = () => {
                     animate="animate"
                   >
                     <Avatar
-                      src="/me.png"
+                      src={`${MEDIA_BASE}/personal/me.png`}
                       alt="Samuel Rubens"
                       sx={{
                         width: { xs: 260, sm: 320, md: 360 },

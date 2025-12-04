@@ -14,13 +14,14 @@ interface EducationItem {
 
 export const Education: React.FC = () => {
   const theme = useTheme();
+  const MEDIA_BASE = 'https://media.rubenszinho.dev';
 
   const education: EducationItem[] = [
     {
       id: 1,
       degree: "Bachelor of Computer Science",
       institution: "University of São Paulo - USP",
-      logoSrc: "/logo-usp.svg",
+      logoSrc: `${MEDIA_BASE}/misc/usp.png`,
       period: "Mar 2023 - Present",
       description: "Currently pursuing a Computer Science degree at one of Latin America's most prestigious universities, focusing on distributed systems, algorithms and data structures."
     },
@@ -28,15 +29,15 @@ export const Education: React.FC = () => {
       id: 2,
       degree: "Bachelor of Computer Engineering",
       institution: "University of São Paulo - USP",
-      logoSrc: "/logo-usp.svg",
-      period: "Mar 2021 - 2023",
+      logoSrc: `${MEDIA_BASE}/misc/usp.png`,
+      period: "Mar 2020 - 2023",
       description: "Started in Computer Engineering before transferring to Computer Science. Completed foundational courses in electrical circuits, computer architecture, and digital systems."
     },
     {
       id: 3,
       degree: "Cambridge Advanced Exam (CAE)",
       institution: "Cambridge English Assessment",
-      logoSrc: "/logo-cambridge.svg",
+      logoSrc: `${MEDIA_BASE}/partners/cambridge.png`,
       period: "2019",
       description: "Achieved C1 CEFR level certification in English proficiency, demonstrating advanced language skills in reading, writing, speaking and listening."
     }

@@ -7,6 +7,7 @@ import { useTheme } from '@mui/material/styles';
 
 export const Hero: React.FC = () => {
   const theme = useTheme();
+  const MEDIA_BASE = 'https://media.rubenszinho.dev';
 
   const socialLinks = [
     { icon: <Github size={24} />, label: 'GitHub', url: 'https://github.com/rubenszinho' },
@@ -15,7 +16,7 @@ export const Hero: React.FC = () => {
     { 
       icon: (
         <img 
-          src="/WhatsApp.png" 
+          src={`${MEDIA_BASE}/misc/whatsapp.png`}
           alt="WhatsApp" 
           style={{ 
             width: '24px', 
@@ -32,7 +33,7 @@ export const Hero: React.FC = () => {
     { 
       icon: (
         <img 
-          src="/lattes.png" 
+          src={`${MEDIA_BASE}/misc/lattes.png`}
           alt="Lattes" 
           style={{ 
             width: '24px', 
@@ -46,7 +47,7 @@ export const Hero: React.FC = () => {
       label: 'Lattes CV', 
       url: 'http://lattes.cnpq.br/1985187824292077' 
     },
-    { icon: <FileText size={24} />, label: 'PDF Resume', url: '/samuel-rubens-resume.pdf' },
+    { icon: <FileText size={24} />, label: 'PDF Resume', url: `${MEDIA_BASE}/personal/samuel-rubens-resume.pdf` },
   ];
 
   const typedTexts = [
@@ -135,21 +136,20 @@ export const Hero: React.FC = () => {
                 <TypedText texts={typedTexts} typingSpeed={80} deletingSpeed={40} variant="h3" />
               </Box>
 
-              <Typography
-                variant="body1"
-                paragraph
-                sx={{
-                  fontSize: '1.125rem',
-                  color: 'text.secondary',
-                  maxWidth: '600px',
-                  mb: 4,
-                  lineHeight: 1.7,
-                }}
-              >
-                Platform Engineer & Full-Stack Developer specializing in microservices with accessible serverless deployment.
-                Founder @ Rubrion & MonDesa, developing platform engineering cooperative solutions with focus on 
-                "Vite + React Router {">"} NextJS monopoly" and "Railway + NeonDB = MVP paradise" philosophy.
-              </Typography>
+                <Typography
+                  variant="body1"
+                  paragraph
+                  sx={{
+                    fontSize: '1.125rem',
+                    color: 'text.secondary',
+                    maxWidth: '600px',
+                    mb: 4,
+                    lineHeight: 1.7,
+                  }}
+                >
+                  Senior Software Engineer & Tech Lead specializing in Full-Stack Development, SRE, and DevOps.
+                  Open-source enthusiast with a serverless-first approach to deliver impact faster.
+                </Typography>
 
               {/* CTA Buttons */}
               <Box sx={{ display: 'flex', gap: 2, mb: 4 }}>
@@ -254,7 +254,7 @@ export const Hero: React.FC = () => {
                     animate="animate"
                   >
                     <Avatar
-                      src="/me.png"
+                      src={`${MEDIA_BASE}/personal/me.png`}
                       alt="Samuel Rubens"
                       sx={{
                         width: { xs: 260, sm: 320, md: 360 },

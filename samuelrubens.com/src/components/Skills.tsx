@@ -5,33 +5,27 @@ import { motion } from 'framer-motion';
 import {
   SiGo,
   SiTypescript,
-  SiLua,
-  SiGnubash,
   SiKubernetes,
   SiDocker,
   SiTerraform,
   SiGithubactions,
   SiAmazon,
-  SiOracle,
   SiReact,
   SiVite,
   SiFlutter,
   SiGin,
-  SiMqtt,
-  SiEspressif,
-  SiKotlin,
   SiFastapi,
-  SiNodedotjs,
   SiPython,
-  SiLangchain,
   SiRailway,
   SiCloudflare,
   SiSupabase,
-  SiPostgresql
+  SiNestjs,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiHono,
+  SiBun
 } from "react-icons/si";
 
-// Import additional icons if needed
-import { MdOutlineRadio } from "react-icons/md";
 import { CloudQueue } from '@mui/icons-material';
 
 interface SkillCategory {
@@ -49,52 +43,54 @@ export const Skills: React.FC = () => {
   const iconSize = 24;
   const iconColor = theme.palette.primary.main;
 
-  // Updated skill categories with React Icons matching README.md tech stack
+  // Updated skill categories
   const skillCategories: SkillCategory[] = [
     {
-      title: 'Frontend & Mobile',
-      skills: [
-        { name: 'React', icon: <SiReact size={iconSize} color={iconColor} /> },
-        { name: 'Vite', icon: <SiVite size={iconSize} color={iconColor} /> },
-        { name: 'TypeScript', icon: <SiTypescript size={iconSize} color={iconColor} /> },
-        { name: 'Flutter', icon: <SiFlutter size={iconSize} color={iconColor} /> },
-        { name: 'Kotlin', icon: <SiKotlin size={iconSize} color={iconColor} /> },
-      ]
-    },
-    {
-      title: 'Backend & Linguagens',
+      title: 'Linguagens',
       skills: [
         { name: 'Go', icon: <SiGo size={iconSize} color={iconColor} /> },
-        { name: 'FastAPI', icon: <SiFastapi size={iconSize} color={iconColor} /> },
-        { name: 'Node.js', icon: <SiNodedotjs size={iconSize} color={iconColor} /> },
+        { name: 'TypeScript', icon: <SiTypescript size={iconSize} color={iconColor} /> },
         { name: 'Python', icon: <SiPython size={iconSize} color={iconColor} /> },
-        { name: 'Gin (Go)', icon: <SiGin size={iconSize} color={iconColor} /> },
-        { name: 'Lua', icon: <SiLua size={iconSize} color={iconColor} /> },
-        { name: 'Shell Script', icon: <SiGnubash size={iconSize} color={iconColor} /> },
       ]
     },
     {
-      title: 'IA & Engenharia de Plataforma',
+      title: 'Backend',
       skills: [
-        { name: 'LangChain', icon: <SiLangchain size={iconSize} color={iconColor} /> },
+        { name: 'Bun', icon: <SiBun size={iconSize} color={iconColor} /> },
+        { name: 'Hono', icon: <SiHono size={iconSize} color={iconColor} /> },
+        { name: 'NestJS', icon: <SiNestjs size={iconSize} color={iconColor} /> },
+        { name: 'FastAPI', icon: <SiFastapi size={iconSize} color={iconColor} /> },
+        { name: 'Gin', icon: <SiGin size={iconSize} color={iconColor} /> },
+      ]
+    },
+    {
+      title: 'Frontend',
+      skills: [
+        { name: 'Next.js', icon: <SiNextdotjs size={iconSize} color={iconColor} /> },
+        { name: 'React', icon: <SiReact size={iconSize} color={iconColor} /> },
+        { name: 'Vite', icon: <SiVite size={iconSize} color={iconColor} /> },
+        { name: 'Flutter', icon: <SiFlutter size={iconSize} color={iconColor} /> },
+        { name: 'Tailwind CSS', icon: <SiTailwindcss size={iconSize} color={iconColor} /> },
+      ]
+    },
+    {
+      title: 'SRE & DevOps',
+      skills: [
         { name: 'Kubernetes', icon: <SiKubernetes size={iconSize} color={iconColor} /> },
         { name: 'Docker', icon: <SiDocker size={iconSize} color={iconColor} /> },
         { name: 'Terraform', icon: <SiTerraform size={iconSize} color={iconColor} /> },
-        { name: 'CI/CD (GitHub, Azure)', icon: <SiGithubactions size={iconSize} color={iconColor} /> },
-        { name: 'MQTT', icon: <SiMqtt size={iconSize} color={iconColor} /> },
-        { name: 'ESP32', icon: <SiEspressif size={iconSize} color={iconColor} /> },
+        { name: 'GitHub Actions', icon: <SiGithubactions size={iconSize} color={iconColor} /> },
       ]
     },
     {
-      title: 'Serverless & Bancos de Dados',
+      title: 'Cloud',
       skills: [
         { name: 'Railway', icon: <SiRailway size={iconSize} color={iconColor} /> },
         { name: 'Cloudflare', icon: <SiCloudflare size={iconSize} color={iconColor} /> },
+        { name: 'NeonDB', icon: <SiSupabase size={iconSize} color={iconColor} /> },
         { name: 'Supabase', icon: <SiSupabase size={iconSize} color={iconColor} /> },
-        { name: 'PostgreSQL', icon: <SiPostgresql size={iconSize} color={iconColor} /> },
-        { name: 'AWS', icon: <SiAmazon size={iconSize} color={iconColor} /> },
         { name: 'Azure', icon: <CloudQueue sx={{ fontSize: iconSize, color: iconColor }} /> },
-        { name: 'Oracle Cloud', icon: <SiOracle size={iconSize} color={iconColor} /> },
+        { name: 'AWS', icon: <SiAmazon size={iconSize} color={iconColor} /> },
       ]
     }
   ];
@@ -123,7 +119,7 @@ export const Skills: React.FC = () => {
               textAlign: 'center'
             }}
           >
-            Minhas Habilidades Técnicas
+            Habilidades Técnicas
           </Typography>
           <Typography
             variant="body1"
@@ -135,24 +131,28 @@ export const Skills: React.FC = () => {
               textAlign: 'center'
             }}
           >
-            Sou especializado em engenharia de plataforma e desenvolvimento full-stack com foco em arquitetura de microsserviços,
-            deployment serverless acessível, e a filosofia "Railway + NeonDB = paraíso MVP" para prototipagem rápida e soluções escaláveis.
+            Sou especializado em desenvolvimento full-stack e engenharia de plataforma com foco em infraestrutura cloud moderna,
+            deployment serverless, e construção de soluções escaláveis com boas práticas de CI/CD.
           </Typography>
 
-          <Grid container spacing={4}>
+          <Grid container spacing={4} sx={{ alignItems: 'stretch' }}>
             {skillCategories.map((category, catIndex) => (
-              <Grid item xs={12} md={4} key={category.title}>
+              <Grid item xs={12} md={4} key={category.title} sx={{ display: 'flex' }}>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: catIndex * 0.1 }}
+                  style={{ width: '100%', display: 'flex' }}
                 >
                   <Paper
                     elevation={0}
                     sx={{
                       p: 3,
                       height: '100%',
+                      width: '100%',
+                      display: 'flex',
+                      flexDirection: 'column',
                       border: `1px solid ${theme.palette.divider}`,
                       backgroundColor: theme.palette.background.paper,
                       borderRadius: 2,

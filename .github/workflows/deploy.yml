@@ -39,8 +39,15 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build all sites
-        run: pnpm run build
+      - name: Build rubenszinho.dev
+        run: pnpm --filter rubenszinho.dev build
+        env:
+          VITE_MEDIA_BASE_URL: https://media.rubenszinho.dev
+
+      - name: Build samuelrubens.com
+        run: pnpm --filter samuelrubens.com build
+        env:
+          VITE_MEDIA_BASE_URL: https://media.samuelrubens.com
 
       - name: Upload rubenszinho.dev artifact
         uses: actions/upload-artifact@v4

@@ -14,13 +14,14 @@ interface EducationItem {
 
 export const Education: React.FC = () => {
   const theme = useTheme();
+  const MEDIA_BASE = 'https://media.samuelrubens.com';
 
   const education: EducationItem[] = [
     {
       id: 1,
       degree: "Bacharelado em Ciência da Computação",
       institution: "Universidade de São Paulo - USP",
-      logoSrc: "/logo-usp.svg",
+      logoSrc: `${MEDIA_BASE}/misc/usp.png`,
       period: "Mar 2023 - Presente",
       description: "Atualmente cursando Ciência da Computação em uma das universidades mais prestigiosas da América Latina, com foco em sistemas distribuídos, algoritmos e estruturas de dados."
     },
@@ -28,15 +29,15 @@ export const Education: React.FC = () => {
       id: 2,
       degree: "Bacharelado em Engenharia de Computação",
       institution: "Universidade de São Paulo - USP",
-      logoSrc: "/logo-usp.svg",
-      period: "Mar 2021 - 2023",
+      logoSrc: `${MEDIA_BASE}/misc/usp.png`,
+      period: "Mar 2020 - 2023",
       description: "Iniciei em Engenharia de Computação antes de transferir para Ciência da Computação. Completei disciplinas fundamentais em circuitos elétricos, arquitetura de computadores e sistemas digitais."
     },
     {
       id: 3,
       degree: "Cambridge Advanced Exam (CAE)",
       institution: "Cambridge English Assessment",
-      logoSrc: "/logo-cambridge.svg",
+      logoSrc: `${MEDIA_BASE}/partners/cambridge.png`,
       period: "2019",
       description: "Alcancei certificação nível C1 CEFR em proficiência em inglês, demonstrando habilidades avançadas em leitura, escrita, fala e escuta."
     }
