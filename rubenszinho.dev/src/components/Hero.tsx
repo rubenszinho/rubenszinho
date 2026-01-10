@@ -47,7 +47,7 @@ export const Hero: React.FC = () => {
       label: 'Lattes CV', 
       url: 'http://lattes.cnpq.br/1985187824292077' 
     },
-    { icon: <FileText size={24} />, label: 'PDF Resume', url: `${MEDIA_BASE}/personal/samuel-rubens-resume.pdf` },
+    { icon: <FileText size={24} />, label: 'PDF Resume', url: '/samuel-rubens-resume.pdf' },
   ];
 
   const typedTexts = [

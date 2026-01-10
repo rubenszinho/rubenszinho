@@ -17,6 +17,7 @@ import { Mail, MapPin, Send } from 'lucide-react';
 
 export const Contact: React.FC = () => {
   const theme = useTheme();
+  const MEDIA_BASE = 'https://media.rubenszinho.dev';
   const [formValues, setFormValues] = useState({
     name: '',
     email: '',
@@ -193,7 +194,7 @@ export const Contact: React.FC = () => {
                       }}
                     >
                       <img 
-                        src="/WhatsApp.png" 
+                        src={`${MEDIA_BASE}/misc/whatsapp.png`}
                         alt="WhatsApp" 
                         style={{ 
                           width: '18px', 
