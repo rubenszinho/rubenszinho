@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   Box,
   Container,
@@ -15,6 +15,9 @@ import {
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Send } from 'lucide-react';
 
+const WORKER_URL = import.meta.env.VITE_SUPPORT_WORKER_URL;
+const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY;
+
 export const Contact: React.FC = () => {
   const theme = useTheme();
   const MEDIA_BASE = import.meta.env.VITE_MEDIA_BASE_URL || 'https://media.samuelrubens.com';
@@ -24,10 +27,64 @@ export const Contact: React.FC = () => {
     subject: '',
     message: ''
   });
+  const [honeypot, setHoneypot] = useState('');
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+
+  const turnstileContainerRef = useRef<HTMLDivElement>(null);
+  const turnstileWidgetIdRef = useRef<string | null>(null);
+  const captchaRequired = Boolean(TURNSTILE_SITE_KEY);
+
+  const renderTurnstile = useCallback(() => {
+    if (!captchaRequired) return;
+    if (!turnstileContainerRef.current) return;
+    if (!window.turnstile) return;
+    if (turnstileWidgetIdRef.current) return;
+
+    turnstileWidgetIdRef.current = window.turnstile.render(turnstileContainerRef.current, {
+      sitekey: TURNSTILE_SITE_KEY!,
+      theme: theme.palette.mode === 'dark' ? 'dark' : 'light',
+      callback: (token: string) => setTurnstileToken(token),
+      'expired-callback': () => setTurnstileToken(null),
+      'error-callback': () => setTurnstileToken(null),
+    });
+  }, [captchaRequired, theme.palette.mode]);
+
+  useEffect(() => {
+    if (!captchaRequired) return;
+    renderTurnstile();
+    if (turnstileWidgetIdRef.current) return;
+
+    const interval = window.setInterval(() => {
+      if (window.turnstile) {
+        renderTurnstile();
+        if (turnstileWidgetIdRef.current) {
+          window.clearInterval(interval);
+        }
+      }
+    }, 250);
+
+    return () => window.clearInterval(interval);
+  }, [captchaRequired, renderTurnstile]);
+
+  useEffect(() => {
+    return () => {
+      if (turnstileWidgetIdRef.current && window.turnstile) {
+        window.turnstile.remove(turnstileWidgetIdRef.current);
+        turnstileWidgetIdRef.current = null;
+      }
+    };
+  }, []);
+
+  const resetCaptcha = () => {
+    if (turnstileWidgetIdRef.current && window.turnstile) {
+      window.turnstile.reset(turnstileWidgetIdRef.current);
+    }
+    setTurnstileToken(null);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -36,47 +93,58 @@ export const Contact: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!WORKER_URL) {
+      setError(true);
+      setErrorMessage('Endpoint do formulário não configurado. Entre em contato pelo email contato@samuelrubens.com.');
+      return;
+    }
+
+    if (captchaRequired && !turnstileToken) {
+      setError(true);
+      setErrorMessage('Por favor, complete o desafio do captcha.');
+      return;
+    }
+
     setLoading(true);
 
-    try {
-      const response = await fetch('https://formsubmit.co/ajax/contato@samuelrubens.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: formValues.name,
-          email: formValues.email,
-          subject: formValues.subject,
-          message: formValues.message,
-          _subject: `[Portfolio Website] Contact from ${formValues.name}`,
-          _replyto: formValues.email,
-          source: 'portfolio-website',
-          website_url: window.location.origin,
-          page_source: window.location.pathname,
-          _captcha: 'true',
-          _template: 'box'
-        }),
-      });
+    const payload = {
+      name: formValues.name,
+      email: formValues.email,
+      subject: formValues.subject,
+      message: formValues.message,
+      turnstileToken: turnstileToken ?? '',
+      honeypot,
+    };
 
-      const result = await response.json();
+    try {
+      const response = await fetch(WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
 
       if (response.ok) {
         setSuccess(true);
-        setFormValues({
-          name: '',
-          email: '',
-          subject: '',
-          message: ''
-        });
+        setFormValues({ name: '', email: '', subject: '', message: '' });
+        setHoneypot('');
+        resetCaptcha();
       } else {
-        throw new Error(result.message || 'Form submission failed');
+        let message = 'Falha ao enviar mensagem. Tente novamente.';
+        try {
+          const data = await response.json();
+          if (data?.error) message = data.error;
+        } catch {
+          /* keep default */
+        }
+        setError(true);
+        setErrorMessage(message);
+        resetCaptcha();
       }
     } catch (err) {
       setError(true);
-      setErrorMessage(err instanceof Error ? err.message : 'An unknown error occurred');
-      console.error('Form submission error:', err);
+      setErrorMessage(err instanceof Error ? err.message : 'Erro de rede. Tente novamente.');
+      resetCaptcha();
     } finally {
       setLoading(false);
     }
@@ -86,6 +154,8 @@ export const Contact: React.FC = () => {
     if (type === 'success') setSuccess(false);
     else setError(false);
   };
+
+  const submitDisabled = loading || (captchaRequired && !turnstileToken);
 
   return (
     <Box
@@ -139,7 +209,7 @@ export const Contact: React.FC = () => {
               textAlign: 'center'
             }}
           >
-            Tem um projeto em mente ou interesse em colaborar em engenharia de plataforma, arquitetura de microsserviços ou soluções de deployment serverless? 
+            Tem um projeto em mente ou interesse em colaborar em engenharia de plataforma, arquitetura de microsserviços ou soluções de deployment serverless?
             Como fundador da Rubrion & MonDesa, sou especialista na abordagem "Railway + NeonDB = paraíso MVP" e modelos de desenvolvimento cooperativo.
           </Typography>
 
@@ -193,22 +263,22 @@ export const Contact: React.FC = () => {
                         color: 'white',
                       }}
                     >
-                      <img 
+                      <img
                         src={`${MEDIA_BASE}/misc/whatsapp.png`}
-                        alt="WhatsApp" 
-                        style={{ 
-                          width: '18px', 
+                        alt="WhatsApp"
+                        style={{
+                          width: '18px',
                           height: '18px'
-                        }} 
+                        }}
                       />
                     </Box>
                     <Box>
                       <Typography variant="body2" sx={{ color: 'text.secondary', mb: 0.5 }}>
                         WhatsApp Business
                       </Typography>
-                      <Typography 
-                        variant="body1" 
-                        sx={{ 
+                      <Typography
+                        variant="body1"
+                        sx={{
                           fontWeight: 500,
                           '& a': {
                             color: 'inherit',
@@ -220,7 +290,7 @@ export const Contact: React.FC = () => {
                           }
                         }}
                       >
-                        <a 
+                        <a
                           href="https://wa.me/5511992562478?text=Olá%20Samuel!%20Tenho%20interesse%20em%20discutir%20uma%20oportunidade%20de%20projeto."
                           target="_blank"
                           rel="noopener noreferrer"
@@ -329,13 +399,43 @@ export const Contact: React.FC = () => {
                         onChange={handleChange}
                       />
                     </Grid>
+
+                    {/* Honeypot — hidden from real users; bots fill it and the worker rejects silently */}
+                    <Box
+                      aria-hidden="true"
+                      sx={{
+                        position: 'absolute',
+                        left: '-10000px',
+                        width: '1px',
+                        height: '1px',
+                        overflow: 'hidden',
+                      }}
+                    >
+                      <label htmlFor="contact-website">Website</label>
+                      <input
+                        type="text"
+                        id="contact-website"
+                        name="honeypot"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={honeypot}
+                        onChange={(e) => setHoneypot(e.target.value)}
+                      />
+                    </Box>
+
+                    {captchaRequired && (
+                      <Grid item xs={12}>
+                        <Box ref={turnstileContainerRef} sx={{ display: 'flex', justifyContent: 'center', mt: 1 }} />
+                      </Grid>
+                    )}
+
                     <Grid item xs={12}>
                       <Button
                         type="submit"
                         variant="contained"
                         size="large"
                         color="primary"
-                        disabled={loading}
+                        disabled={submitDisabled}
                         endIcon={loading ? <CircularProgress size={20} color="inherit" /> : <Send size={18} />}
                         sx={{
                           mt: 1,
@@ -349,7 +449,11 @@ export const Contact: React.FC = () => {
                           }
                         }}
                       >
-                        {loading ? 'Enviando...' : 'Enviar Mensagem'}
+                        {loading
+                          ? 'Enviando...'
+                          : captchaRequired && !turnstileToken
+                            ? 'Verificando...'
+                            : 'Enviar Mensagem'}
                       </Button>
                     </Grid>
                   </Grid>

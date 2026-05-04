@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# Vite env files. `.env.production` is committed (public values, needed by CI).
+# Local-only overrides stay ignored.
+.env
+.env.local
+.env.production.local
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
